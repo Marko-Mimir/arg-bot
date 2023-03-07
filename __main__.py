@@ -47,19 +47,18 @@ async def on_ready():
 async def change(ctx:molter.MolterContext, types ,content=""):
      if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
               return
-        else:
-     if types == "0":
-          await bot.change_presence(interactions.ClientPresence(
-               status=interactions.StatusType.INVISIBLE,
-               activities=[]
-          ))
      else:
-          await bot.change_presence(interactions.ClientPresence(
-               status=interactions.StatusType.DND,
-               activities=[
-                    interactions.PresenceActivity(name=content,type=interactions.PresenceActivityType.GAME)
-               ]
-          ))
+          if types == "0":
+               await bot.change_presence(interactions.ClientPresence(
+                    status=interactions.StatusType.INVISIBLE,
+                    activities=[]
+               ))
+          else:
+               await bot.change_presence(interactions.ClientPresence(
+                    status=interactions.StatusType.DND,
+                    activities=[
+                         interactions.PresenceActivity(name=content,type=interactions.PresenceActivityType.GAME)
+                 ]))
 
 
 #send command to given channel
@@ -158,9 +157,9 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
 async def debug(ctx:molter.MolterContext, name):
      if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
               return
-        else:
-     con = c.execute("SELECT * FROM notes WHERE name =?", (name,)).fetchall()
-     await ctx.send("Name: "+con[0][0]+"\nAuthor: "+con[0][1]+"\nContents: "+con[0][2]+"\nAuthor Id: "+con[0][3])
+     else:
+          con = c.execute("SELECT * FROM notes WHERE name =?", (name,)).fetchall()
+          await ctx.send("Name: "+con[0][0]+"\nAuthor: "+con[0][1]+"\nContents: "+con[0][2]+"\nAuthor Id: "+con[0][3])
 
 #tag delete
 @tag.subcommand()
