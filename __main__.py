@@ -28,7 +28,13 @@ data = json.load(f)
 f.close
 
 bot = Client(token=data['token'],
- intents=Intents.DEFAULT | Intents.GUILD_MESSAGE_CONTENT)
+ intents=Intents.DEFAULT | Intents.GUILD_MESSAGE_CONTENT,
+ presence=interactions.ClientPresence(
+     status=interactions.StatusType.DND,
+     activities=[
+          interactions.PresenceActivity(name="Running V0.4",type=interactions.PresenceActivityType.GAME)
+     ]
+ ))
 
 molter.setup(bot, default_prefix='>')
 
@@ -36,23 +42,51 @@ molter.setup(bot, default_prefix='>')
 async def on_ready():
 	print('ready!')
 
+#change presence on runtime
+@molter.prefixed_command()
+async def change(ctx:molter.MolterContext, types ,content=""):
+     if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
+              return
+        else:
+     if types == "0":
+          await bot.change_presence(interactions.ClientPresence(
+               status=interactions.StatusType.INVISIBLE,
+               activities=[]
+          ))
+     else:
+          await bot.change_presence(interactions.ClientPresence(
+               status=interactions.StatusType.DND,
+               activities=[
+                    interactions.PresenceActivity(name=content,type=interactions.PresenceActivityType.GAME)
+               ]
+          ))
+
+
 #send command to given channel
 @molter.prefixed_command()
 async def send(ctx: molter.MolterContext, id, content):
         if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
               return
         else:
-            channel = await interactions.get(bot, interactions.Channel, object_id=int(id))
-            async with Typing(ctx._http, int(id)):      
+
+          rem = ["<","#",">"]
+          for x in rem:
+               id = id.replace(x,"")
+          channel = await interactions.get(bot, interactions.Channel, object_id=int(id))
+          async with Typing(ctx._http, int(id)):      
                 await asyncio.sleep(len(content)*0.015)
                 await channel.send(content=content);
 
+#Reply to messages
 @molter.prefixed_command()
 async def reply(ctx: molter.MolterContext, messageId, channelId, content):
+     rem = ["<","#",">"]
+     for x in rem:
+          channelId = channelId.replace(x,"")
      message = await interactions.get(bot, interactions.Message, object_id=messageId, parent_id=channelId)
      await message.reply(content);
 
-#command to make tags
+#command to get tags
 @molter.prefixed_command()
 async def tag(ctx:molter.MolterContext, name=None):
       if name == "list":
@@ -78,6 +112,7 @@ async def tag(ctx:molter.MolterContext, name=None):
       else:
            await ctx.reply('This is not a valid tag name, or a valid sub-command.')
 
+#tag setter
 @tag.subcommand()
 async def create(ctx: molter.MolterContext, name=None, content=None):
 
@@ -118,11 +153,16 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
          cur.commit();
          await ctx.send("Tag **"+msg1.content+"** was created!")
 
+#tag.admin.debug
 @tag.subcommand()
 async def debug(ctx:molter.MolterContext, name):
+     if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
+              return
+        else:
      con = c.execute("SELECT * FROM notes WHERE name =?", (name,)).fetchall()
      await ctx.send("Name: "+con[0][0]+"\nAuthor: "+con[0][1]+"\nContents: "+con[0][2]+"\nAuthor Id: "+con[0][3])
 
+#tag delete
 @tag.subcommand()
 async def delete(ctx:molter.MolterContext, name=None):
      async def check(msg):
@@ -152,6 +192,7 @@ async def delete(ctx:molter.MolterContext, name=None):
      else:
           return await ctx.send("You are not the author of this tag.")
 
+#edit tags
 @tag.subcommand()
 async def edit(ctx:molter.MolterContext, name=None):
     async def check(msg):
