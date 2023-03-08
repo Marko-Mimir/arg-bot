@@ -1,6 +1,7 @@
-str = "<#1082319478324482049>"
-rem = ["<","#",">"]
-for x in rem:
-    str = str.replace(x, "")
+import json
 
-print(str)
+f = open("./json/livi.json")
+data = json.load(f)
+f.close
+
+data["1"]["who"]["you"].keys()

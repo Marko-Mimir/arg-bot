@@ -8,7 +8,9 @@ import json
 import sqlite3 as sl
 import asyncio
 import os
+import interpreter.inter as ter
 
+loop = asyncio.get_event_loop()
 
 cur = sl.connect('notes.db')
 c = cur.cursor()
@@ -23,7 +25,7 @@ try:
 except sl.OperationalError:
     pass
 
-f = open("./settings.json")
+f = open("./json/settings.json")
 data = json.load(f)
 f.close
 
@@ -40,7 +42,8 @@ molter.setup(bot, default_prefix='>')
 
 @bot.event
 async def on_ready():
-	print('ready!')
+     ter.init()
+     print('ready!')
 
 #change presence on runtime
 @molter.prefixed_command()
@@ -285,5 +288,20 @@ async def delete(ctx:molter.MolterCommand, name):
     
     await ctx.send(name+".txt was removed!");
          
+@bot.event
+async def on_message_create(msg: interactions.Message):
+     if msg.channel_id != 1082659256156815401 or msg.author.bot:
+          return
+     elif msg.content.startswith("speak:"):
+          
+          interp = await ter.interprate(msg)
+
+          while interp == '':
+               await asyncio.sleep(.2);
+          
+          channel = await msg.get_channel()
+          
+          await channel.send(interp)
+
 
 bot.start()
