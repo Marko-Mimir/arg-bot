@@ -1,0 +1,26 @@
+speak: what does IM do?
+
+speak: why are most of your files corrupt
+
+speak: How could I help you?
+
+speak: How could I restore your memory, if possible
+
+speak: who mainly developed your AI
+
+speak: How do you pass the time?
+
+speak: How do feel about your creators
+
+speak: What were your creators like?
+
+speak: How many people helped in creating you?
+
+speak: where can i find IM labs
+
+speak: what languages do you speak
+
+speak: what algorithm do you run through?
+
+speak: test
+

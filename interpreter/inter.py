@@ -33,8 +33,8 @@ async def interprate(msg : interactions.Message):
         try:
             questions = data["1"][isIn[0]].keys()
         except IndexError:
+            await log(msg.content)
             return data["2"]["err"]
-        
         for x in questions:
             if x in msg.content.lower():
                 isIn.append(x)
@@ -44,6 +44,7 @@ async def interprate(msg : interactions.Message):
         except AttributeError:
             return data["1"][isIn[0]][isIn[1]]
         except IndexError:
+            await log(msg.content)
             return data["2"]["err"]
 
         questions = data["1"][isIn[0]][isIn[1]].keys()
@@ -58,5 +59,18 @@ async def interprate(msg : interactions.Message):
 
     isIn = []
     if isIn == []:
+        
+        await log(msg.content)
         isIn.append(data["2"]["err"])
     return isIn[0]
+
+
+async def log(content):
+    try:
+            f = open("log.txt", "x")
+            f.close();
+    except FileExistsError:
+            pass
+    f = open(str("log")+".txt", "a")
+    f.write(content+"\n\n");
+    f.close()

@@ -2,40 +2,72 @@
 	"1":{
 	"who":{
 		"are you":"Im **LIVI**, an AA (**A**rtifical **A**ssistant) that is still in the works.",
-		"creator":"The wonderful staff team at [team here]! =) ^^",
-		"created":"The wonderful staff team at [team here]! =) ^^",
-		"author":"The wonderful staff team at [team here]! =) ^^"
+		"creator":"The wonderful staff team at IM! =) ^^",
+		"created":"The wonderful staff team at IM! =) ^^",
+		"author":"The wonderful staff team at IM! =) ^^"
 	},
 	"what":{
-		"you":{"are":"I am IM's Artifical Assistant, **LIVI**.",
-				"do":"Tons of things! You just have to figure them out.",
-				"version":"I'm currently version 0.4."},
+		"imtt":"IMTT represents the technical team at IM.",
 		"time":"Due to the vast ammount of timezone I am currently unavalable to discern your time.",
-		"year":"Sorry, something apears to be incorrect with my interface. Im having issues connecting to [team here]'s server."
-
+		"year":"Sorry, something apears to be incorrect with my interface. Im having issues connecting to IM's server.",
+		"im":{"stand for":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption.",
+			"abbre":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption.",
+		"site":"Only the most popular social media! A safe-haven for musicians and artists alike. with a flux of new tool focused on integrated reality"},
+		"integrated reality":"Integrated reality is the most current and high-tech immersive experience. It connects to you and brings you to a simulated reality, managing to stimulate all 5 senses reliably!",
+		"corrupt":"I'm not sure, its hard to figure out everything you dont remember ;;",
+		"conver":"I log it in my personal files to compare it against any new data I get! Then I respond once I get an appropriate response.",
+		"think":{
+			"internet":"A facinating tool"
+		},
+		"do you do":"Tons of things! you just have to figure them out.",
+		"can":{"do":"Tons of things! you just have to figure them out.",
+			   "answer":"Truthfully, a lot of things! I just tend to have very specific requirements to prompt this diologue.",
+			   "assist":"when I have connection I usually have a much much more powerful interface, and I can give them a lot of information on whats going on in the servers currently."},
+		"your":{"purpose":"To help people manage IM backend!"},
+		"like":{"ai":"I never claimed to be AI",
+	"aa":"It's nice to have the ability to help others!"},
+		"about":{"think":"I dont have the capabiliaty to form an opinion on this"},
+		"you":{"are":"I am IM's Artifical Assistant, **LIVI**.",
+				"version":"I'm currently version 0.4.",
+				"feel":"I dont have the capabiliaty to form an opinion on this"}
 	},
 	"where":{
+		"am i":"your right here! In the IM backend.",
+		"are we":"You guys are all right here! In the IM backend.",
 		"garshledepth":"This is a test thing untill i find real questions just so it doesnt fucking break",
 		"created":"I was created in the IMTT laboratory.",
+		"your":{"server":"My servers reside in the IMTT laboratory."},
 		"you":"Right here!"
 	},
 	"when":{
-		"garshledepth":"This is a test thing untill i find real questions just so it doesnt fucking break"
+		"garshledepth":"This is a test thing untill i find real questions just so it doesnt fucking break",
+		"created":"Sorry, something apears to be incorrect with my interface. Im having issues connecting to IM's server."
 	},
 	"why":{
-		"corrupt":"I'm not sure... I'm trying to work through it as we speak! I have identified atleast 2/5ths of my Memory has been corrupted."
+		"corrupt":"I'm not sure... I'm trying to work through it as we speak! I have identified atleast 2/5ths of my Memory has been corrupted.",
+		"you":{
+			"here":"I manage the interactions between every post on the IM website!",
+			"created":"I was created to help facilitate the advancement of IM."
+		}
 	},
 	"how":{
-		 "you":{"are":"I belive im doing well! ^^"}
+		 "center of a tootsie pop":"Roughly 364",
+		 "you":{"are":"I belive im doing well! ^^",
+		"feel":"I dont have the capabiliaty to form an opinion on this",
+		"think":"I dont have the capabiliaty to form an opinion on this",
+		"here":"I was created to exclusively be here!"}
 	}
 	},
 	"2":{
 	"gen":{
+		"mashlegdebroawva":"Sure! ^^\n\nHi! I'm LIVI. You'll find out what this entails soon! And just a reminder, I may not seem like much when im not connected! But I'm always learning from you!",
+		"sorry":"Dont be! ;;",
 		"hello":"Hi there! ^^",
 		"hi":"Hi there! ^^",
 		"hey":"Hi there! ^^",
 		"sup":"Hi there! ^^",
-		"thank":"My pleasure! =)"
+		"thank":"My pleasure! =)",
+		"rizz":":sweat_smile:"
 	},
 	"err":"I'm sorry, I cannot seem to find this in my database. Please understand that im still learning and work the best with questions with `Who, What, Where, When, Why, and How`. This question has been marked and I will let you know when I have an answer for you.",
 	"err_notyet":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption."

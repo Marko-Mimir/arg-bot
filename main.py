@@ -290,7 +290,7 @@ async def delete(ctx:molter.MolterCommand, name):
          
 @bot.event
 async def on_message_create(msg: interactions.Message):
-     if msg.channel_id != 1082659256156815401 or msg.author.bot:
+     if msg.channel_id != 1082659256156815401 and msg.channel_id != 1082360658244423690 or msg.author.bot:
           return
      elif msg.content.startswith("speak:"):
           
