@@ -317,7 +317,7 @@ async def post(ctx:molter.MolterContext, id, color, bash):
         return
      
      splint = bash.split("|")
-
+     
      color = color[1:]
      need = "0x"
      hex_int = int(need+color,16)
