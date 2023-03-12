@@ -21,6 +21,9 @@ speak: where can i find IM labs
 speak: what languages do you speak
 
 speak: what algorithm do you run through?
+speak: howdy
 
-speak: test
+speak: howdy
+
+speak: howdy
 

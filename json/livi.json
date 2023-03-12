@@ -55,19 +55,22 @@
 		 "you":{"are":"I belive im doing well! ^^",
 		"feel":"I dont have the capabiliaty to form an opinion on this",
 		"think":"I dont have the capabiliaty to form an opinion on this",
-		"here":"I was created to exclusively be here!"}
+		"here":"I was created to exclusively be here!"},
+		"howdy":"Hi there! ^^"
 	}
 	},
 	"2":{
 	"gen":{
 		"mashlegdebroawva":"Sure! ^^\n\nHi! I'm LIVI. You'll find out what this entails soon! And just a reminder, I may not seem like much when im not connected! But I'm always learning from you!",
 		"sorry":"Dont be! ;;",
+		"howdy":"Hi there! ^^",
 		"hello":"Hi there! ^^",
 		"hi":"Hi there! ^^",
 		"hey":"Hi there! ^^",
 		"sup":"Hi there! ^^",
+		"g'day":"Hi there! ^^",
 		"thank":"My pleasure! =)",
-		"rizz":":sweat_smile:"
+		"rizz":":cold_sweat:"
 	},
 	"err":"I'm sorry, I cannot seem to find this in my database. Please understand that im still learning and work the best with questions with `Who, What, Where, When, Why, and How`. This question has been marked and I will let you know when I have an answer for you.",
 	"err_notyet":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption."

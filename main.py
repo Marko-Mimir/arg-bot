@@ -10,6 +10,8 @@ import asyncio
 import os
 import interpreter.inter as ter
 
+isEnabled = True
+
 loop = asyncio.get_event_loop()
 
 cur = sl.connect('notes.db')
@@ -44,6 +46,15 @@ molter.setup(bot, default_prefix='>')
 async def on_ready():
      ter.init()
      print('ready!')
+
+#enable livi
+@molter.prefixed_command()
+async def able(ctx:molter.MolterContext):
+     global isEnabled
+     if isEnabled:
+          isEnabled = False
+     else:
+          isEnabled = True
 
 #change presence on runtime
 @molter.prefixed_command()
@@ -91,6 +102,9 @@ async def reply(ctx: molter.MolterContext, messageId, channelId, content):
 #command to get tags
 @molter.prefixed_command()
 async def tag(ctx:molter.MolterContext, name=None):
+      global isEnabled
+      if isEnabled == False:
+           return;
       if name == "list":
            con = c.execute("SELECT name FROM notes WHERE authorid =?", (str(ctx.author.id),)).fetchall()
            print(con)
@@ -123,7 +137,10 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
               return True
          else:
               return False
-         
+     
+    global isEnabled
+    if isEnabled == False:
+           return
     if name != None and content != None:
         c.execute("INSERT INTO notes VALUES(?, ?, ?, ?)", (name, ctx.author.name, content, str(ctx.author.id)))
         cur.commit();
@@ -167,6 +184,9 @@ async def debug(ctx:molter.MolterContext, name):
 #tag delete
 @tag.subcommand()
 async def delete(ctx:molter.MolterContext, name=None):
+     global isEnabled
+     if isEnabled == False:
+           return
      async def check(msg):
          if int(msg.author.id) == int(ctx.author.id):
               return True
@@ -197,6 +217,9 @@ async def delete(ctx:molter.MolterContext, name=None):
 #edit tags
 @tag.subcommand()
 async def edit(ctx:molter.MolterContext, name=None):
+    global isEnabled
+    if isEnabled == False:
+           return
     async def check(msg):
          if int(msg.author.id) == int(ctx.author.id):
               return True
@@ -287,11 +310,35 @@ async def delete(ctx:molter.MolterCommand, name):
         return
     
     await ctx.send(name+".txt was removed!");
-         
+
+@molter.prefixed_command() #general 7a3f3b test test test test
+async def post(ctx:molter.MolterContext, id, color, msg, author, title, description, likes, comments):
+     if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
+        return
+     
+     color = color[1:]
+     need = "0x"
+     hex_int = int(need+color,16)
+
+     emb = interactions.Embed(title=title)
+     emb.footer = interactions.EmbedFooter(text=likes+"  Likes | "+comments+" Comments")
+     emb.add_field('',description)
+     emb.color = hex_int
+     emb.author = interactions.EmbedAuthor(name=author)
+     rem = ["<","#",">"]
+     for x in rem:
+          id = id.replace(x,"")
+     channel = await interactions.get(bot, interactions.Channel, object_id=int(id))
+     await channel.send(content=msg, embeds=[emb])
+     
+
 @bot.event
 async def on_message_create(msg: interactions.Message):
+     global isEnabled
      if msg.channel_id != 1082659256156815401 and msg.channel_id != 1082360658244423690 or msg.author.bot:
           return
+     if isEnabled == False:
+           return
      elif msg.content.startswith("speak:"):
           
           interp = await ter.interprate(msg)
