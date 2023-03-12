@@ -311,25 +311,27 @@ async def delete(ctx:molter.MolterCommand, name):
     
     await ctx.send(name+".txt was removed!");
 
-@molter.prefixed_command() #general 7a3f3b test test test test
-async def post(ctx:molter.MolterContext, id, color, msg, author, title, description, likes, comments):
+@molter.prefixed_command() #general 7a3f3b testing|testing|testing|testing|0|0
+async def post(ctx:molter.MolterContext, id, color, bash):
      if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
         return
      
+     splint = bash.split("|")
+
      color = color[1:]
      need = "0x"
      hex_int = int(need+color,16)
 
-     emb = interactions.Embed(title=title)
-     emb.footer = interactions.EmbedFooter(text=likes+"  Likes | "+comments+" Comments")
-     emb.add_field('',description)
+     emb = interactions.Embed(title=splint[2])
+     emb.footer = interactions.EmbedFooter(text=splint[4]+"  Likes | "+splint[5]+" Comments")
+     emb.add_field('',splint[3])
      emb.color = hex_int
-     emb.author = interactions.EmbedAuthor(name=author)
+     emb.author = interactions.EmbedAuthor(name=splint[1])
      rem = ["<","#",">"]
      for x in rem:
           id = id.replace(x,"")
      channel = await interactions.get(bot, interactions.Channel, object_id=int(id))
-     await channel.send(content=msg, embeds=[emb])
+     await channel.send(content=splint[0], embeds=[emb])
      
 
 @bot.event
