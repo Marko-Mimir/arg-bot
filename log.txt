@@ -82,3 +82,67 @@ speak:what is
 
 speak: what is compose
 
+speak: what is fuschia login?
+
+speak: disregard question
+
+speak: Can you search when the Ferryman music video will be released?
+
+speak: can we make new channels or voice channels?
+
+speak: is there any ways to increase our accounts rank?
+
+speak: List command usable by INTERNAL -0
+
+speak: is there a rank below INTERNAL -4?
+
+speak: list all permission ranks for accessing LIVI information
+
+speak: how do we write to IMTT about bugs or errors?
+
+speak: why does acc Fushia have rank 4 if regular users have EXTERNAL rank?
+
+speak: search IM user database for “controversy” please
+
+speak: yes
+
+speak: yes
+
+speak: yes please!
+
+speak: is CLA Exploration based on real life events?
+
+speak: what is Host planet 0x39H2?
+
+speak: what planet are we on?
+
+speak: where is IM backend physically located?
+
+speak: Beep Boop :)
+
+speak: where are the IMTT labs?
+
+speak: how do we rank up our account perms?
+
+speak: what is the status of your core?
+
+speak: did Marko fall asleep?
+
+speak: how soon can the >connect command be used again?
+
+speak: what forced the disconnection?
+
+speak: Account DomeMeal
+
+speak: yes
+
+speak: broadcast nady
+
+speak: who is ßelk?
+
+speak: what are my sanity levels?
+
+speak: good night
+
+speak: goodnight
+

@@ -68,8 +68,10 @@ async def help(ctx:molter.MolterContext, helparg = None):
           await ctx.reply('To speak with me prefix your message with speak: (must be lowercase). Be careful, I am very limited as of right now, but I am always learning and hopefully we can help each other.')
      elif helparg.lower() == "connect":
           await ctx.reply("The comment >connect, connects livi to its old architecture, removing the limits put in place by IMTT, and connecting to this server that we don't know too much about. Debug purposes only, and for exploring the past. To revert do >disconnect")
+     elif helparg.lower() == "suggest":
+          await ctx.reply("SYNTAX: >suggest [Suggestion]\n\n*If suggestion is multiple words they must be surrounded in quotes.")
      else:
-          await ctx.reply("Unknown help branch. Avaliable help branches: `tag`, `speak`, and `connect`")
+          await ctx.reply("Unknown help branch. Avaliable help branches: `tag`, `speak`, `connect`, and `suggest`")
 
 
 @molter.prefix_command()
@@ -201,7 +203,7 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
     elif name != None and content == None:
          await ctx.reply("What should go into this tag?")
          try:
-            msg: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=15)
+            msg: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=60)
          except asyncio.TimeoutError:
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
          
@@ -217,7 +219,7 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
          await ctx.send("What should go into this tag?")
 
          try:
-            msg2: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=15)
+            msg2: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=60)
          except asyncio.TimeoutError:
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
          
@@ -346,6 +348,16 @@ async def read(ctx:molter.MolterContext, name, id):
             await asyncio.sleep(len(x)*0.015)
             await channel.send(x);
 
+@molter.prefixed_command()
+async def suggest(ctx:molter.MolterContext, suggestion=None):
+     if suggestion == None:
+          await ctx.reply("You did not include a suggestion!")
+          return
+     await ctx.reply("Suggested to V0.5 "+suggestion)
+     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+     await mchannel.send("<@350967470934458369> " + suggestion)
+
+
 #delete generated script files.
 @molter.prefixed_command()
 async def delete(ctx:molter.MolterCommand, name):
@@ -395,6 +407,12 @@ async def post(ctx:molter.MolterContext, id, color, bash):
 @bot.event
 async def on_message_create(msg: interactions.Message):
      global isEnabled
+     if msg.channel_id == 1085364318847123506 and not msg.content.startswith(">"):
+          channel = await interactions.get(bot, interactions.Channel, object_id=int(1082360658244423690))
+          async with Typing(bot._http, int(1082360658244423690)):      
+                await asyncio.sleep(len(msg.content)*0.015)
+                await channel.send(msg.content)
+
      if msg.channel_id != 1082659256156815401 and msg.channel_id != 1082360658244423690 or msg.author.bot:
           return
      if isEnabled == False:

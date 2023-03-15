@@ -10,12 +10,13 @@
 		"worked":{"most":"My servers have a lot of logs from `_Mantle`"},
 		"author":"The wonderful staff team at IM! =) ^^",
 		"kero":"?",
+		"morded":"Answer derived from IM user database: [Name] Morded [Bio] `Wither.` [Pronouns] He/Him",
 		"mantel":"_Mantle, Pronouns: [He/Him], Title:[AA team lead], Bio:[`Has been working here for 13 years, runs the IM account DomeMeal`]",
 		"mangomash":"Answer derived from IM user database: [Name] MarshMango [Bio] `Sup nerds! its Marsh here, your resident rpg god, catch my stream at [BROKEN LINK]` [Pronouns] She/Her",
 		"darne":"Answer derived from IM user database: [Name] Darne [Bio] `Leadchef at Joe's cafe| Trying to make some shitty music | Minors DNI` [Pronouns] UNLISTED",
 		"kies":"Answer derived from IM user database: [Name] Kies [Bio] `#1 COMPOSE FAN | Posts about silly little robots and creatures.` [Pronouns] She/Her",
 		"veisia":"Answer derived from IM user database: [Name] Veisia [Bio] `Co-Writer and Voice Actor for CLA Exploration. Business inquiries as [**BROKEN LINK**]` [Pronouns] He/Him",
-		"certum":"Answer derived from IM user database: [Name] Veisia [Bio] `Streamer | Artist | Music Creator. Catch my streams at [**BROKEN LINK**]. see you 'round.` [Pronouns] They/Them",
+		"certum":"Answer derived from IM user database: [Name] Certum [Bio] `Streamer | Artist | Music Creator. Catch my streams at [**BROKEN LINK**]. see you 'round.` [Pronouns] They/Them",
 		"xylan":"Answer derived from IM user database: [Name] Xylan [Bio] `Aspiring Musician, Catch my music here [BROKEN LINK], TOUR UPCOMING` [Pronouns] They/Them",
 		"domemeal":"Answer derived from IM user database: [Name] DomeMeal [Bio] `IM's official changelog and bug reporting account.` [Pronouns] None"
 	},
@@ -87,6 +88,7 @@
 		}
 	},
 	"how":{
+
 		"debug":"If i answer a question wrong do >log, and I will put it in an error log for my developers to work on!",
 		"work":"Im a self-learning Neural net with several limitations, Im sorry im having issues finding things in my immediate memory.",
 		 "center of a tootsie pop":"Roughly 364",
@@ -99,6 +101,7 @@
 	},
 	"2":{
 	"gen":{
+		"good":{ "night":"Good Night !! ^^"},
 		">":"I have detected you're trying to run a command, please run this without the speak: prefix!",
 		"it":{
 			"ok":"thank you"},
