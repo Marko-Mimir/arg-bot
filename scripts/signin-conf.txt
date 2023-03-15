@@ -1,0 +1,10 @@
+checking...
+Accepted!
+generating a random password...
+..
+Random password: Rf8PZhvc
+*you can change this later but write this down.* (As it is your confirmation id).
+*loading help.*
+...
+Avaliable help branches: `Tag`, `speak`
+to access help do >help *help branch*

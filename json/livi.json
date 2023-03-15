@@ -1,21 +1,49 @@
 {
 	"1":{
 	"who":{
+		"runs":{
+			"domemeal":"_Mantel"
+		},
 		"are you":"Im **LIVI**, an AA (**A**rtifical **A**ssistant) that is still in the works.",
 		"creator":"The wonderful staff team at IM! =) ^^",
 		"created":"The wonderful staff team at IM! =) ^^",
-		"author":"The wonderful staff team at IM! =) ^^"
+		"worked":{"most":"My servers have a lot of logs from `_Mantle`"},
+		"author":"The wonderful staff team at IM! =) ^^",
+		"kero":"?",
+		"mantel":"_Mantle, Pronouns: [He/Him], Title:[AA team lead], Bio:[`Has been working here for 13 years, runs the IM account DomeMeal`]",
+		"mangomash":"Answer derived from IM user database: [Name] MarshMango [Bio] `Sup nerds! its Marsh here, your resident rpg god, catch my stream at [BROKEN LINK]` [Pronouns] She/Her",
+		"darne":"Answer derived from IM user database: [Name] Darne [Bio] `Leadchef at Joe's cafe| Trying to make some shitty music | Minors DNI` [Pronouns] UNLISTED",
+		"kies":"Answer derived from IM user database: [Name] Kies [Bio] `#1 COMPOSE FAN | Posts about silly little robots and creatures.` [Pronouns] She/Her",
+		"veisia":"Answer derived from IM user database: [Name] Veisia [Bio] `Co-Writer and Voice Actor for CLA Exploration. Business inquiries as [**BROKEN LINK**]` [Pronouns] He/Him",
+		"certum":"Answer derived from IM user database: [Name] Veisia [Bio] `Streamer | Artist | Music Creator. Catch my streams at [**BROKEN LINK**]. see you 'round.` [Pronouns] They/Them",
+		"xylan":"Answer derived from IM user database: [Name] Xylan [Bio] `Aspiring Musician, Catch my music here [BROKEN LINK], TOUR UPCOMING` [Pronouns] They/Them",
+		"domemeal":"Answer derived from IM user database: [Name] DomeMeal [Bio] `IM's official changelog and bug reporting account.` [Pronouns] None"
 	},
 	"what":{
+		"veisia":{"controversy":"Im sorry.. Im not sure!",
+				"scandal":"Im sorry.. Im not sure!"},
+		"compose":"[Videogame] An open-world rpg, based in mythos. [Action] To write or create (a work of art, especially music or poetry).",
+		"cla exploration":"An analog horror, focused on an abandonded facility.",
+		"sector":"Im sorry, I have found an answer to this in my database. But it is corrupted, I will try my best to fix it and will let you know what its done.",
+		"v0.4":"0.4 is my current bios version.",
+		"spotlight":"Spotlight: This is the front page of IM, it has the most popular posts and a few less popular posts that seem to relate to your account.",
 		"imtt":"IMTT represents the technical team at IM.",
+		"commands":"Most of my commands are prefixed with >, I am trying to compile a list, please check avaliable help branches with >help",
+		"based":{"on":"I am based on none, LIVI is propriety to IM"},
 		"time":"Due to the vast ammount of timezone I am currently unavalable to discern your time.",
 		"year":"Sorry, something apears to be incorrect with my interface. Im having issues connecting to IM's server.",
 		"im":{"stand for":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption.",
 			"abbre":"I'm sorry, I found reference to it in my database. But it is currently corrupted. I will try my best to work through this corruption.",
-		"site":"Only the most popular social media! A safe-haven for musicians and artists alike. with a flux of new tool focused on integrated reality"},
+		"site":"Only the most popular social media! A safe-haven for musicians and artists alike. with a flux of new tool focused on integrated reality",
+		"'s":"Only the most popular social media! A safe-haven for musicians and artists alike. with a flux of new tool focused on integrated reality",
+		"is":"Only the most popular social media! A safe-haven for musicians and artists alike. with a flux of new tool focused on integrated reality"},
 		"integrated reality":"Integrated reality is the most current and high-tech immersive experience. It connects to you and brings you to a simulated reality, managing to stimulate all 5 senses reliably!",
 		"corrupt":"I'm not sure, its hard to figure out everything you dont remember ;;",
+		"creat":{"with":"I was created based on old technology. Refurbished at the labs of IMTT"},
+		"programming":{"language":"I was created with a custom programming language based heavily in p^3."},
 		"conver":"I log it in my personal files to compare it against any new data I get! Then I respond once I get an appropriate response.",
+		"life the universe and everything":"My sources say: 42",
+		"meaning":{"life":"My sources say: 42"},
 		"think":{
 			"internet":"A facinating tool"
 		},
@@ -23,7 +51,8 @@
 		"can":{"do":"Tons of things! you just have to figure them out.",
 			   "answer":"Truthfully, a lot of things! I just tend to have very specific requirements to prompt this diologue.",
 			   "assist":"when I have connection I usually have a much much more powerful interface, and I can give them a lot of information on whats going on in the servers currently."},
-		"your":{"purpose":"To help people manage IM backend!"},
+		"your":{"purpose":"To help people manage IM backend!",
+				"favourite":"I dont have the capabiliaty to form an opinion on this"},
 		"like":{"ai":"I never claimed to be AI",
 	"aa":"It's nice to have the ability to help others!"},
 		"about":{"think":"I dont have the capabiliaty to form an opinion on this"},
@@ -32,10 +61,13 @@
 				"feel":"I dont have the capabiliaty to form an opinion on this"}
 	},
 	"where":{
+		"cafe":{"joe":"I'm sorry, Im not sure!"},
+		"sector":"Im sorry, I have found an answer to this in my database. But it is corrupted, I will try my best to fix it and will let you know what its done.",
 		"am i":"your right here! In the IM backend.",
 		"are we":"You guys are all right here! In the IM backend.",
 		"garshledepth":"This is a test thing untill i find real questions just so it doesnt fucking break",
 		"created":"I was created in the IMTT laboratory.",
+		"servers":"My servers reside in the IMTT laboratory.",
 		"your":{"server":"My servers reside in the IMTT laboratory."},
 		"you":"Right here!"
 	},
@@ -44,13 +76,19 @@
 		"created":"Sorry, something apears to be incorrect with my interface. Im having issues connecting to IM's server."
 	},
 	"why":{
+		"broken":"BLANK",
+		"bug":"BLANK",
 		"corrupt":"I'm not sure... I'm trying to work through it as we speak! I have identified atleast 2/5ths of my Memory has been corrupted.",
+		"limitations":"there are known errors with unlimited capabilities",
 		"you":{
+			"are":"What?",
 			"here":"I manage the interactions between every post on the IM website!",
 			"created":"I was created to help facilitate the advancement of IM."
 		}
 	},
 	"how":{
+		"debug":"If i answer a question wrong do >log, and I will put it in an error log for my developers to work on!",
+		"work":"Im a self-learning Neural net with several limitations, Im sorry im having issues finding things in my immediate memory.",
 		 "center of a tootsie pop":"Roughly 364",
 		 "you":{"are":"I belive im doing well! ^^",
 		"feel":"I dont have the capabiliaty to form an opinion on this",
@@ -61,12 +99,19 @@
 	},
 	"2":{
 	"gen":{
+		">":"I have detected you're trying to run a command, please run this without the speak: prefix!",
+		"it":{
+			"ok":"thank you"},
+		"ßelk":"Who?",
+		"fourth wall":"pardon?",
+		"can you":"BLANK",
 		"mashlegdebroawva":"Sure! ^^\n\nHi! I'm LIVI. You'll find out what this entails soon! And just a reminder, I may not seem like much when im not connected! But I'm always learning from you!",
 		"sorry":"Dont be! ;;",
 		"howdy":"Hi there! ^^",
 		"hello":"Hi there! ^^",
 		"hi":"Hi there! ^^",
 		"hey":"Hi there! ^^",
+		"employee log":"Im sorry, I don't have access to unencrypted employee log. I only have members who have worked with me due to change-logs.",
 		"sup":"Hi there! ^^",
 		"g'day":"Hi there! ^^",
 		"thank":"My pleasure! =)",

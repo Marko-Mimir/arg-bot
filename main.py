@@ -11,6 +11,7 @@ import os
 import interpreter.inter as ter
 
 isEnabled = True
+isConnectSent = False
 
 loop = asyncio.get_event_loop()
 
@@ -55,6 +56,58 @@ async def able(ctx:molter.MolterContext):
           isEnabled = False
      else:
           isEnabled = True
+
+@molter.prefix_command()
+async def help(ctx:molter.MolterContext, helparg = None):
+     if helparg == None:
+          await ctx.reply("ERROR: `Help branch needed`")
+          return
+     if helparg.lower() == "tag":
+          await ctx.reply('I can hold a dictionary of any tag. To get started do >tag create to read tags do >tag [name] to edit tags to >tag edit [name] and to delete tags do >tag delete [name] you can also list the tags you have created with >tag list.')
+     elif helparg.lower() == "speak":
+          await ctx.reply('To speak with me prefix your message with speak: (must be lowercase). Be careful, I am very limited as of right now, but I am always learning and hopefully we can help each other.')
+     elif helparg.lower() == "connect":
+          await ctx.reply("The comment >connect, connects livi to its old architecture, removing the limits put in place by IMTT, and connecting to this server that we don't know too much about. Debug purposes only, and for exploring the past. To revert do >disconnect")
+     else:
+          await ctx.reply("Unknown help branch. Avaliable help branches: `tag`, `speak`, and `connect`")
+
+
+@molter.prefix_command()
+async def connect(ctx:molter.MolterContext):
+     global isEnabled
+     global isConnectSent
+     if isConnectSent == True:
+          await ctx.send("**Connection Request is `already sent`!**")
+          return
+     await ctx.send("Sending Connection Request")
+     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+     await mchannel.send("<@350967470934458369> " + "HOLY SHIT ANSWER PLSS")
+     isConnectSent = True
+
+@molter.prefix_command()
+async def disconnect(ctx:molter.MolterContext):
+     global isEnabled
+     global isConnectSent
+     if isConnectSent == False:
+          return
+     if isEnabled == True:
+          await ctx.send("Cancelling")
+          isConnectSent = False
+          return
+     await ctx.send("Disconnecting from `IGNO` servers")
+     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+     await mchannel.send("<@350967470934458369> " + "DISABLED")
+     await asyncio.sleep(.1)
+     await ctx.send("Starting V0.4")
+     await asyncio.sleep(.1)
+     await ctx.send("Logging in...")
+     await asyncio.sleep(.5)
+     await ctx.send("Logged in! `fuchsia`")
+
+     isConnectSent = False
+     isEnabled = True
+     
+     
 
 #change presence on runtime
 @molter.prefixed_command()
@@ -311,6 +364,11 @@ async def delete(ctx:molter.MolterCommand, name):
     
     await ctx.send(name+".txt was removed!");
 
+@molter.prefixed_command()
+async def pin(ctx:molter.MolterContext, msgid, channelid):
+     message = await interactions.get(bot, interactions.Message, object_id=msgid, parent_id=channelid)
+     await message.pin()
+
 @molter.prefixed_command() #general 7a3f3b testing|testing|testing|testing|0|0
 async def post(ctx:molter.MolterContext, id, color, bash):
      if not await ctx.author.has_permissions(interactions.Permissions.ADMINISTRATOR):
@@ -347,6 +405,11 @@ async def on_message_create(msg: interactions.Message):
 
           while interp == '':
                await asyncio.sleep(.2);
+          if interp == "BLANK":
+               pass
+               mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+               await mchannel.send("<@350967470934458369> " + msg.content)
+               return
           
           channel = await msg.get_channel()
           

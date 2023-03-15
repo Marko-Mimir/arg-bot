@@ -21,9 +21,64 @@ speak: where can i find IM labs
 speak: what languages do you speak
 
 speak: what algorithm do you run through?
-speak: howdy
 
-speak: howdy
+speak: LIVI wake up
 
-speak: howdy
+speak: >connect
+
+speak: go home LIVI you're drunk
+
+speak: what
+
+speak: why are you
+
+speak: what is the meaning of life livi
+
+speak: What is the answer to life the universe and everything
+
+speak: what is your biggest regret?
+
+speak: do a barrel roll
+
+speak: what are my sanity levels?
+
+speak: when does the spotlight update?
+
+speak: I'm a rich gnoll, should I invest in a crystal plate armour?
+
+speak: LIVI, turn the game console off now.
+
+speak: LIVI break the fourth wall
+
+speak: why do you work?
+
+speak: call Belk, you need repairs
+
+speak: are you lgbt
+
+speak: Why are you so buggy?
+
+speak: how much money do you have?
+
+speak: how can I find your location?
+
+speak: 127.101.69
+
+speak: why are you like this
+
+speak: how do I post?
+
+speak: How do you debug?
+
+speak: do you know eminem
+
+speak: what is sector 5?
+
+speak: where is sector 5?
+
+speak: you're excused
+
+speak:what is
+
+speak: what is compose
 
