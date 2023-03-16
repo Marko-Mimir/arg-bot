@@ -146,3 +146,11 @@ speak: good night
 
 speak: goodnight
 
+s: love you LIVI <3
+
+s: What’s LIVI-BETA?
+
+s: bye livi :)
+
+s: what is unavailable? Other suggestions?
+

@@ -65,9 +65,9 @@ async def help(ctx:molter.MolterContext, helparg = None):
      if helparg.lower() == "tag":
           await ctx.reply('I can hold a dictionary of any tag. To get started do >tag create to read tags do >tag [name] to edit tags to >tag edit [name] and to delete tags do >tag delete [name] you can also list the tags you have created with >tag list.')
      elif helparg.lower() == "speak":
-          await ctx.reply('To speak with me prefix your message with speak: (must be lowercase). Be careful, I am very limited as of right now, but I am always learning and hopefully we can help each other.')
+          await ctx.reply('To speak with me prefix your message with `speak:` or `s:` (no longer case sensitive). Be careful, I am very limited as of right now, but I am always learning and hopefully we can help each other.')
      elif helparg.lower() == "connect":
-          await ctx.reply("The comment >connect, connects livi to its old architecture, removing the limits put in place by IMTT, and connecting to this server that we don't know too much about. Debug purposes only, and for exploring the past. To revert do >disconnect")
+          await ctx.reply("The command >connect, connects livi to its old architecture, removing the limits put in place by IMTT, and connecting to this server that we don't know too much about. Debug purposes only, and for exploring the past. To revert do >disconnect")
      elif helparg.lower() == "suggest":
           await ctx.reply("SYNTAX: >suggest [Suggestion]\n\n*If suggestion is multiple words they must be surrounded in quotes.")
      else:
@@ -206,7 +206,9 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
             msg: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=60)
          except asyncio.TimeoutError:
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
-         
+         if msg.content.lower() == "cancel":
+               await ctx.send("cancelling")
+               return
          c.execute("INSERT INTO notes VALUES(?, ?, ?, ?)", (name, ctx.author.name, msg.content, str(ctx.author.id)));
          cur.commit();
          await ctx.send("Tag **"+name+"** was created!")
@@ -218,11 +220,16 @@ async def create(ctx: molter.MolterContext, name=None, content=None):
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
          await ctx.send("What should go into this tag?")
 
+         if msg1.content.lower() == "cancel":
+           await ctx.send("cancelling")
+           return
          try:
             msg2: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=60)
          except asyncio.TimeoutError:
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
-         
+         if msg2.content.lower() == "cancel":
+               await ctx.send("cancelling")
+               return
          c.execute('INSERT INTO notes VALUES (?, ?, ?, ?)', (msg1.content, str(ctx.author.name), msg2.content, str(ctx.author.id)))
          cur.commit();
          await ctx.send("Tag **"+msg1.content+"** was created!")
@@ -256,6 +263,10 @@ async def delete(ctx:molter.MolterContext, name=None):
         except asyncio.TimeoutError:
               return await ctx.send("Sorry, I cant wait any longer, please try again.")
     
+        if name.lower() == "cancel":
+          await ctx.send("Cancelling...")
+          return
+
      content = c.execute("SELECT authorid FROM notes WHERE name =?", (name,)).fetchall();
      if len(content) > 1:
           print("HUGGGE FUCKING ERROR LIKE MASSIVE FUCKING ERROR, LINE 132 of __MAIN__")
@@ -281,13 +292,15 @@ async def edit(ctx:molter.MolterContext, name=None):
          else:
               return False
     if name == None:
-        await ctx.send("What is the name of the tag you're deleting?")
+        await ctx.send("What is the name of the tag you're editing?")
         try:
             msg: interactions.Message = await wf.wait_for(bot, "on_message_create", check=check, timeout=15)
             name = msg.content
         except asyncio.TimeoutError:
             return await ctx.send("Sorry, I cant wait any longer, please try again.")
-    
+        if msg.content.lower() == "cancel":
+           await ctx.send("canceling")
+           return
     entry = c.execute("SELECT * FROM notes WHERE name =?", (name,)).fetchall();
     if len(entry) <= 0:
          return await ctx.send("Tag not found. Check capitilization, it's **CaSe SeNsItIve**")
@@ -300,6 +313,9 @@ async def edit(ctx:molter.MolterContext, name=None):
     except asyncio.TimeoutError:
             return await ctx.send("Sorry, I cant wait any longer, please try again.")
 
+    if msg1.content.lower == "cancel":
+      await ctx.send("canceled")
+      return
     c.execute("UPDATE notes SET data = ? WHERE name = ?",(msg1.content, name))
     cur.commit()
     await ctx.send("Update complete!")
@@ -356,7 +372,17 @@ async def suggest(ctx:molter.MolterContext, suggestion=None):
      await ctx.reply("Suggested to V0.5 "+suggestion)
      mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
      await mchannel.send("<@350967470934458369> " + suggestion)
+#1086062318074474567
 
+@molter.prefixed_command()
+async def search(ctx:molter.MolterContext, suggestion=None):
+     if suggestion == None:
+          await ctx.reply("You did not include a search query!")
+          return
+     await ctx.reply("Searching for: "+suggestion)
+     await ctx.send("I will let you know when i find an answer.")
+     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+     await mchannel.send("<@350967470934458369> " + suggestion + " " + ctx.msg.id + " " + ctx.msg.channel_id)
 
 #delete generated script files.
 @molter.prefixed_command()
@@ -417,7 +443,7 @@ async def on_message_create(msg: interactions.Message):
           return
      if isEnabled == False:
            return
-     elif msg.content.startswith("speak:"):
+     elif msg.content.lower().startswith("speak:") or msg.content.lower().startswith('s:'):
           
           interp = await ter.interprate(msg)
 
