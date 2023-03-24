@@ -21,6 +21,7 @@
 		"domemeal":"Answer derived from IM user database: [Name] DomeMeal [Bio] `IM's official changelog and bug reporting account.` [Pronouns] None"
 	},
 	"what":{
+		"log":"I detect a catagory under the name logs, unfortunately I am unable parse any useable data from it.",
 		"veisia":{"controversy":"Im sorry.. Im not sure!",
 				"scandal":"Im sorry.. Im not sure!"},
 		"compose":"[Videogame] An open-world rpg, based in mythos. [Action] To write or create (a work of art, especially music or poetry).",

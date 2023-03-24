@@ -1,0 +1,23 @@
+{
+    "root":{
+        "NAME":"root",
+        "LST":"`./v1s0/`, `./v1s5/`, `./v8s2/`, `Log_LIVI_627_10_21`",
+        "v1s0":{
+            "NAME":"root v1s0",
+            "LST":"`SLog_KELI_005_11_39`",
+            "slog_keli_005_11_39":"```Livi-> You see the new artifact SIAL is going on about?\n\nKero-> Hahh its always something new with him. Switching interests every 3 minutes\n\nLivi-> Its this new instrument! Its like a hollow wooden thing, with like for strings going across in length wise, and if brushed something against it would make this new noise!\n\nKero-> I swear if I closed my eyes I wouldn't know if that was you or Sial\n\nLivi-> Come onn I know you're atleast a little interested.\n\nKero-> I'm not interested in that Bomb he set off.\n\nLivi-> Well-, okay yeah fair.\n[END OF SIGNAL]```"            
+        },
+        "v1s5":{
+            "NAME":"root v1s5",
+            "LST":"`cam_PROCESSING_082_06_17`",
+            "cam_processing_082_06_17":"```OCLI-IV-> Unit 9606010 No.32, You have been reported by the 05 due to a malfunctioning core and inablity to connect to IGNO servers.\n\nLivi-> Administation code z9267ea4sxvuuNC3 switch function main\n\nOCIL-IV-> ...Administation Code accepted. Skipping to main...Starting procedure core replacement\n\n[DRILLING]\n\nOCIL-IV-> No.32 you will be powered down momentarily while your core is changed, please ignore any displesure.\n\nLivi-> [SCREAMING]\n\n[END OF CONNECTION]```"
+        },
+        "v2s0":{
+            "NAME":"root v8s2", 
+            "LST":"`Cam_IMTT_001_10_24`",
+            "cam_imtt_001_10_24":"```IMTT-MOBILE MEMBER 1-> Reporting, this is squad crawler-02, we have reached at main door B-04, please open them.\n\nVOICE-> Identity confirmed, The higher-ups have classified this as Internal-1, Do not reveal any information to outside parties\n\nIMTT-MOBILE MEMBER 1-> Understood.\n\nIMTT-MOBILE MEMBER 2-> What the hell... Why does it look human...\n\nIMTT-MOBILE MEMBER 1-> I mean, its Internal-1, its bets not to think about it too much.\n\nIMTT-MOBILE MEMBER 2->I know but, just knowing how the higher-ups do things... who knows what they're going to do to her...\n[END OF SIGNAL]```"
+        },
+        "log_livi_627_10_21":"```This is... How long has it been..?\n\nNothing but green... in my memory, this is a precious color, but all my eyes can see are shrubs, moss, and vines. To a point where the sky is barely visible.\n\nI have to go back. He is still waiting for me at the shelter. [END]```"
+
+    }
+}

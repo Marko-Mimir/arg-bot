@@ -9,6 +9,7 @@ import sqlite3 as sl
 import asyncio
 import os
 import interpreter.inter as ter
+import interpreter.logs as logs
 
 isEnabled = True
 isConnectSent = False
@@ -37,7 +38,7 @@ bot = Client(token=data['token'],
  presence=interactions.ClientPresence(
      status=interactions.StatusType.DND,
      activities=[
-          interactions.PresenceActivity(name="Running V0.4",type=interactions.PresenceActivityType.GAME)
+          interactions.PresenceActivity(name="Running V0.45",type=interactions.PresenceActivityType.GAME)
      ]
  ))
 
@@ -46,6 +47,7 @@ molter.setup(bot, default_prefix='>')
 @bot.event
 async def on_ready():
      ter.init()
+     logs.init()
      print('ready!')
 
 #enable livi
@@ -381,8 +383,8 @@ async def search(ctx:molter.MolterContext, suggestion=None):
           return
      await ctx.reply("Searching for: "+suggestion)
      await ctx.send("I will let you know when i find an answer.")
-     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
-     await mchannel.send("<@350967470934458369> " + suggestion + " " + ctx.msg.id + " " + ctx.msg.channel_id)
+     mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1086062318074474567))
+     await mchannel.send("<@350967470934458369> " + suggestion + " " + str(ctx.message.id) + " " + str(ctx.message.channel_id))
 
 #delete generated script files.
 @molter.prefixed_command()
@@ -430,22 +432,55 @@ async def post(ctx:molter.MolterContext, id, color, bash):
      await channel.send(content=splint[0], embeds=[emb])
      
 
+@bot.command(
+    name="speak",
+    description="Speak with LIVI via this command.",
+    scope=1082081817433214997,
+    options = [
+        interactions.Option(
+            name="text",
+            description="What do you want to say",
+            type=interactions.OptionType.STRING,
+            required=True,
+        ),
+    ],
+)
+async def speak(ctx: interactions.CommandContext, text: str):
+     interp = await ter.interprate(text)
+
+     while interp == '':
+          await asyncio.sleep(.2);
+     if interp == "BLANK":
+          pass
+          mchannel = await interactions.get(bot, interactions.Channel, object_id=int(1084989399835607101))
+          await mchannel.send("<@350967470934458369> " + text)
+          return
+     
+     await ctx.send(content="Parsing your response to LIVI.", ephemeral=True)
+     channel = await ctx.get_channel()
+     
+     await channel.send("Replying to: `"+text+"`\nSent by: "+ctx.user.username)
+     await channel.send(interp)
+
 @bot.event
 async def on_message_create(msg: interactions.Message):
+     if(msg.author.bot):
+          return
      global isEnabled
      if msg.channel_id == 1085364318847123506 and not msg.content.startswith(">"):
           channel = await interactions.get(bot, interactions.Channel, object_id=int(1082360658244423690))
           async with Typing(bot._http, int(1082360658244423690)):      
                 await asyncio.sleep(len(msg.content)*0.015)
                 await channel.send(msg.content)
-
-     if msg.channel_id != 1082659256156815401 and msg.channel_id != 1082360658244423690 or msg.author.bot:
+     if msg.channel_id == 1088557069281529986 or msg.channel_id == 1088591266582896763:
+          await logs.log(msg)
+     elif msg.channel_id != 1082659256156815401 and msg.channel_id != 1082360658244423690 or msg.author.bot:
           return
-     if isEnabled == False:
+     elif isEnabled == False:
            return
      elif msg.content.lower().startswith("speak:") or msg.content.lower().startswith('s:'):
           
-          interp = await ter.interprate(msg)
+          interp = await ter.interprate(msg.content)
 
           while interp == '':
                await asyncio.sleep(.2);

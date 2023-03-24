@@ -17,13 +17,13 @@ async def interprate(msg : interactions.Message):
     wasin = False
     questions = data["1"].keys()
     for x in questions:
-        if x in msg.content.lower():
+        if x in msg.lower():
             isIn.append(x)
             wasin = True
 
     gen = data["2"]["gen"].keys()
     for x in gen:
-        if x in msg.content.lower() and not wasin:
+        if x in msg.lower() and not wasin:
             isIn.append(x)
     
     if len(isIn) > 1:
@@ -33,10 +33,10 @@ async def interprate(msg : interactions.Message):
         try:
             questions = data["1"][isIn[0]].keys()
         except IndexError:
-            await log(msg.content)
+            await log(msg)
             return data["2"]["err"]
         for x in questions:
-            if x in msg.content.lower():
+            if x in msg.lower():
                 isIn.append(x)
                 break;
         try:
@@ -44,12 +44,12 @@ async def interprate(msg : interactions.Message):
         except AttributeError:
             return data["1"][isIn[0]][isIn[1]]
         except IndexError:
-            await log(msg.content)
+            await log(msg)
             return data["2"]["err"]
 
         questions = data["1"][isIn[0]][isIn[1]].keys()
         for x in questions:
-            if x in msg.content.lower():
+            if x in msg.lower():
                 isIn.append(x)
                 return data["1"][isIn[0]][isIn[1]][isIn[2]]
     
@@ -60,7 +60,7 @@ async def interprate(msg : interactions.Message):
     isIn = []
     if isIn == []:
         
-        await log(msg.content)
+        await log(msg)
         isIn.append(data["2"]["err"])
     return isIn[0]
 
